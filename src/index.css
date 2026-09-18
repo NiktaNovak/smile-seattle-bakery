@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Lato:wght@400;500;700&display=swap');
+body {
+    margin: 0;
+
+    font-family: "Lato", sans-serif;
+
+    background-color: #fffaf6;
+    color: #212121;
+}
+
+
+/* Main page titles */
+
+h1 {
+    font-family: "Great Vibes", cursive;
+    
+}
+
+
+/* Section headings */
+
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+    
+}

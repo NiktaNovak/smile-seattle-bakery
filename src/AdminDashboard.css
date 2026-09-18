@@ -1,0 +1,367 @@
+.admin-page {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.admin-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.admin-section {
+    margin-bottom: 70px;
+}
+
+.admin-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.admin-orders {
+    display: grid;
+    gap: 25px;
+}
+
+.admin-order-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.admin-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-order-header h2 {
+    margin: 0;
+}
+
+.admin-status {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.admin-status.pending {
+    background: #fff3cd;
+}
+
+.admin-status.confirmed {
+    background: #cfe2ff;
+}
+
+.admin-status.ready {
+    background: #d1e7dd;
+}
+
+.admin-status.completed {
+    background: #d1e7dd;
+}
+
+.admin-status.cancelled {
+    background: #f8d7da;
+}
+
+.admin-order-info p {
+    margin: 10px 0;
+}
+
+.admin-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.admin-actions button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #b86f6f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-actions button:hover {
+    background: #a45d5d;
+}
+
+.admin-error {
+    background: #f8d7da;
+    color: #842029;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   ADMIN CAKE CARDS
+   ============================== */
+
+.admin-cakes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.admin-cake-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-cake-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.admin-cake-info {
+    padding: 20px;
+}
+
+.admin-cake-info h3 {
+    margin: 0 0 8px;
+    color: #8b4513;
+    font-size: 1.3rem;
+}
+
+.admin-cake-category {
+    color: #d2691e;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.admin-cake-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8b4513;
+}
+
+.no-admin-cakes {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* ==============================
+   ADD CAKE FORM
+   ============================== */
+
+.add-cake {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.add-cake h2 {
+    color: #8b4513;
+    margin-bottom: 25px;
+}
+
+.add-cake form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-cake label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+    color: #4e342e;
+}
+
+.add-cake input,
+.add-cake textarea {
+    padding: 12px;
+    border: 1px solid #d8c3b5;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.add-cake textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.add-cake input:focus,
+.add-cake textarea:focus {
+    outline: none;
+    border-color: #d2691e;
+}
+
+.add-cake button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #d2691e;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-cake button:hover {
+    background: #8b4513;
+}
+
+.add-cake select {
+    padding: 12px;
+    border: 1px solid #d8c3b5;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: white;
+    cursor: pointer;
+}
+
+.add-cake select:focus {
+    outline: none;
+    border-color: #d2691e;
+}
+
+.success-message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* ==============================
+   EDIT CAKE
+   ============================== */
+
+.edit-cake-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #d2691e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-cake-button:hover {
+    background: #8b4513;
+}
+
+
+/* ==============================
+   EDIT CAKE FORM
+   ============================== */
+
+.edit-cake {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.edit-cake h2 {
+    color: #8b4513;
+    margin-bottom: 25px;
+}
+
+.edit-cake form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-cake label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+    color: #4e342e;
+}
+
+.edit-cake input,
+.edit-cake textarea,
+.edit-cake select {
+    padding: 12px;
+    border: 1px solid #d8c3b5;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.edit-cake textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.edit-cake input:focus,
+.edit-cake textarea:focus,
+.edit-cake select:focus {
+    outline: none;
+    border-color: #d2691e;
+}
+
+.edit-cake-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.edit-cake-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #d2691e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-cake-actions button:hover {
+    background: #8b4513;
+}
+
+.edit-cake-actions button[type="button"] {
+    background: #777;
+}
+
+.edit-cake-actions button[type="button"]:hover {
+    background: #555;
+}
+
+.availability-button {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #777;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.availability-button:hover {
+    background: #555;
+}

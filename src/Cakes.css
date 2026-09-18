@@ -1,0 +1,256 @@
+/* Cakes Section */
+.cake-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background-color: #fffaf6;
+}
+
+/* Cart Notification */
+.cart-notification {
+    position: fixed;
+    top: 90px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #8b4513;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    animation: notificationSlideIn 0.3s ease;
+}
+
+@keyframes notificationSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Heading */
+.cake-section h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #8b4513;
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+    font-weight: 400;
+}
+
+/* Grid */
+.cake-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+    justify-content: center;
+    gap: 24px;
+}
+
+/* Cake Card */
+.cake {
+    background-color: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #f0dfcf;
+    box-shadow: 0 8px 22px rgba(78, 52, 46, 0.12);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.cake:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 28px rgba(78, 52, 46, 0.18);
+}
+
+/* Image */
+.cake img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cake:hover img {
+    transform: scale(1.03);
+}
+
+/* Card Information */
+.cake-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Title */
+.cake h2 {
+    margin: 0 0 10px;
+    color: #8b4513;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Size */
+.cake label {
+    margin: 3px 0 6px;
+    color: #5b3b2b;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.cake select {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 14px;
+    padding: 10px 12px;
+    border: 1px solid #d8c8ba;
+    border-radius: 8px;
+    background-color: #fffaf6;
+    color: #4e342e;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.cake select:hover {
+    border-color: #c17d3e;
+}
+
+.cake select:focus {
+    outline: 2px solid rgba(193, 125, 62, 0.3);
+    border-color: #c17d3e;
+}
+
+/* Price */
+.price {
+    margin: 0 0 12px;
+    color: #c17d3e;
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Description */
+.cake p:last-of-type {
+    margin: 0 0 20px;
+    color: #555;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Buttons */
+.cake button {
+    width: 90%;
+    align-self: center;
+    padding: 9px 12px;
+    margin-top: 7px;
+    border-radius: 9px;
+    font-family: "Lato", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cake button:first-of-type {
+    background-color: transparent;
+    color: #8b4513;
+    border: 2px solid #c17d3e;
+}
+
+.cake button:first-of-type:hover {
+    background-color: #fff3e8;
+    transform: translateY(-2px);
+}
+
+.cake button:last-of-type {
+    background-color: #8b4513;
+    color: white;
+    border: 2px solid #8b4513;
+    margin-bottom: 8px;
+}
+
+.cake button:last-of-type:hover {
+    background-color: #6f350f;
+    border-color: #6f350f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+.cake button:active {
+    transform: translateY(0);
+}
+
+.cake button:focus {
+    outline: 3px solid rgba(193, 125, 62, 0.3);
+    outline-offset: 2px;
+}
+
+/* Category Title */
+.category-title {
+    margin: 30px 0 35px;
+    padding-bottom: 12px;
+    color: #5b3b2b;
+    font-size: 2.2rem;
+    border-bottom: 3px solid #e9c46a;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cake-cards {
+        grid-template-columns: repeat(2, 250px);
+        gap: 22px;
+    }
+
+    .cake-section h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cake-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .cake img {
+        height: 220px;
+    }
+
+    .cake h2 {
+        font-size: 1.3rem;
+    }
+
+    .cart-notification {
+        top: 75px;
+        right: 15px;
+        left: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .cake-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .cake img {
+        height: 220px;
+    }
+
+    .cake-section h1 {
+        font-size: 2rem;
+    }
+}

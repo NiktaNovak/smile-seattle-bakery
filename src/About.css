@@ -1,0 +1,351 @@
+.about-page {
+    min-height: 100vh;
+    background: #fffaf3;
+    color: #4e342e;
+}
+
+/* Hero */
+
+.about-hero {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff8ef, #ffe8d6);
+    border-bottom: 1px solid #f0dfcf;
+}
+
+.about-hero-text {
+    max-width: 800px;
+}
+
+.about-eyebrow {
+    margin: 0 0 12px;
+    color: #d2691e;
+    font-family: "Lato", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    margin: 0;
+    color: #8b4513;
+    font-family: "Great Vibes", cursive;
+    font-size: 5.2rem;
+    font-weight: 400;
+}
+
+.hero-subtitle {
+    margin: 15px 0 0;
+    color: #5b3b2b;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Nana Story */
+
+.about-story {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.story-image {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-placeholder {
+    width: 100%;
+    max-width: 430px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe8d6;
+    border: 2px solid #e8c46a;
+    border-radius: 20px;
+    color: #8b4513;
+    font-family: "Great Vibes", cursive;
+    font-size: 2.5rem;
+    box-shadow: 0 10px 25px rgba(78, 52, 46, 0.12);
+}
+
+/* Important: unique class so Home.css cannot interfere */
+
+.about-story-content {
+    max-width: 550px;
+}
+
+.about-story-content h2 {
+    margin: 0 0 25px;
+    color: #8b4513;
+    font-size: 2.7rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.about-story-content p:not(.about-eyebrow) {
+    margin: 0 0 18px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Nana Quote */
+
+.smiles-section {
+    padding: 85px 20px;
+    background: #fff3e8;
+    text-align: center;
+}
+
+.smiles-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.quote-mark {
+    display: block;
+    height: 35px;
+    color: #d2691e;
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.smiles-quote {
+    margin: 20px auto;
+    color: #8b4513;
+    font-family: "Great Vibes", cursive;
+    font-size: 2.9rem;
+    line-height: 1.4;
+}
+
+.quote-name {
+    margin: 20px 0 0;
+    color: #d2691e;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Celebration Section */
+
+.special-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 30px;
+    text-align: center;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+    margin: 0 0 15px;
+    color: #8b4513;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.section-heading > p:last-child {
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.7;
+}
+
+.special-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.special-card {
+    padding: 32px 25px;
+    background: white;
+    border: 1px solid #f0dfcf;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(78, 52, 46, 0.1);
+    transition: 0.3s ease;
+}
+
+.special-card:hover {
+    transform: translateY(-7px);
+    border-color: #e8c46a;
+    box-shadow: 0 14px 28px rgba(78, 52, 46, 0.15);
+}
+
+.special-icon {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.special-card h3 {
+    margin: 0 0 12px;
+    color: #8b4513;
+    font-size: 1.5rem;
+}
+
+.special-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* CTA */
+
+.about-cta {
+    padding: 85px 20px;
+    background: #ffe8d6;
+    text-align: center;
+}
+
+.about-cta h2 {
+    margin: 0 0 15px;
+    color: #8b4513;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.about-cta > p:not(.about-eyebrow) {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.about-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.about-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 25px;
+    border-radius: 10px;
+    background: #8b4513;
+    color: white;
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.about-button:hover {
+    background: #d2691e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(78, 52, 46, 0.2);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .about-story {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        text-align: center;
+    }
+
+    .about-story-content {
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .special-cards {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 4.2rem;
+    }
+
+    .about-story,
+    .special-section {
+        padding: 65px 25px;
+    }
+
+    .photo-placeholder {
+        height: 400px;
+    }
+
+    .smiles-section,
+    .about-cta {
+        padding: 65px 20px;
+    }
+
+    .smiles-quote {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .about-hero {
+        min-height: 300px;
+        padding: 50px 20px;
+    }
+
+    .about-hero h1 {
+        font-size: 3.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-story {
+        padding: 50px 20px;
+    }
+
+    .photo-placeholder {
+        height: 320px;
+        font-size: 2rem;
+    }
+
+    .about-story-content h2 {
+        font-size: 2.3rem;
+    }
+
+    .smiles-section {
+        padding: 60px 20px;
+    }
+
+    .smiles-quote {
+        font-size: 2rem;
+    }
+
+    .special-section {
+        padding: 60px 20px;
+    }
+
+    .section-heading h2,
+    .about-cta h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-cta {
+        padding: 60px 20px;
+    }
+
+    .about-button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
