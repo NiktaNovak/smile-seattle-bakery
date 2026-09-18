@@ -1,16 +1,69 @@
-# React + Vite
+# Smile Seattle Bakery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack bakery website for browsing cakes, selecting cake sizes, placing orders, and securely completing payments online.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse cakes by category
+- View detailed cake information
+- Select cake sizes and prices
+- Add cakes to a shopping cart
+- Update quantities and remove items
+- User registration and login
+- JWT-based authentication and authorization
+- Customer order history
+- View individual order details
+- Cancel pending orders
+- Secure Stripe checkout
+- Automatic order creation after successful payment
+- Order confirmation emails
+- Order-ready email notifications
+- Contact form with email notifications
+- Admin dashboard
+- Admin order status management
+- Admin cake management
+- Add, edit, delete, archive, and restore cake sizes
+- Wedding cake quote requests
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- React Router
+- Context API
+- CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+- Node.js
+- Express
+- MySQL
+- JWT
+- bcrypt
+
+### APIs & Services
+
+- Stripe
+- Resend
+- Custom Rest-API
+
+## Project Structure
+
+```text
+bakery-app/
+├── public/
+├── src/
+│   ├── components and pages
+│   ├── context/
+│   └── assets/
+├── server/
+│   ├── controllers/
+│   ├── database/
+│   ├── middleware/
+│   ├── routes/
+│   ├── services/
+│   └── server.js
+├── package.json
+└── README.md
