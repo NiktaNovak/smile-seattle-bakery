@@ -11,7 +11,6 @@ function Contact() {
         if (savedForm) {
             return JSON.parse(savedForm);
         }
-
         return {
             firstName: "",
             lastName: "",
@@ -27,7 +26,6 @@ function Contact() {
     });
 
     const [photoPreview, setPhotoPreview] = useState(null);
-
 
     useEffect(() => {
         sessionStorage.setItem("cakeInquiry", JSON.stringify(formData));
@@ -55,7 +53,7 @@ function Contact() {
         setSubmitMessage("");
         setSubmitError("");
         try {
-            const response = await fetch("http://localhost:5000/api/contact", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

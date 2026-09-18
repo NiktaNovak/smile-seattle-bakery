@@ -25,12 +25,8 @@ function Login() {
         }
         setLoading(true);
         try {
-            const endpoint = isLogin
-                ? "http://localhost:5000/api/users/login"
-                : "http://localhost:5000/api/users/register";
-
+            const endpoint = isLogin ? `${import.meta.env.VITE_API_URL}/api/users/login` : `${import.meta.env.VITE_API_URL}/api/users/register`;
             const body = isLogin ? { email, password } : { name, email, password };
-
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: {
@@ -40,12 +36,10 @@ function Login() {
             });
 
             const data = await response.json();
-
             if (!response.ok) {
                 setError(data.error || "Something went wrong.");
                 return;
             }
-
             if (isLogin) {
                 login(data.token, data.user);
                 setMessage("Login successful!");
@@ -54,15 +48,12 @@ function Login() {
             }
             else {
                 console.log("Registration successful:", data);
-                setMessage(
-                    "Account created successfully! You can now log in."
-                );
+                setMessage("Account created successfully! You can now log in.");
                 setIsLogin(true);
                 setName("");
                 setPassword("");
                 setConfirmPassword("");
             }
-
         } catch (error) {
             console.error(error);
             setError("Unable to connect to the server.");
@@ -83,39 +74,31 @@ function Login() {
 
     return (
         <div className="auth-page">
-
             <div className="auth-container">
-
                 <h1>
                     {isLogin ? "Welcome Back!" : "Create an Account"}
                 </h1>
-
                 <p>
                     {isLogin
                         ? "Log in to continue your order."
                         : "Create an account to order from Smile Seattle Bakery."
                     }
                 </p>
-
                 <form onSubmit={handleSubmit}>
-
                     {!isLogin && (
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
                         </div>
                     )}
-
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="password">Password </label>
                         <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
-
                     {!isLogin && (
                         <div className="form-group">
                             <label htmlFor="confirmPassword"> Confirm Password</label>
@@ -124,19 +107,16 @@ function Login() {
                             />
                         </div>
                     )}
-
                     {error && (
                         <p className="error-message">
                             {error}
                         </p>
                     )}
-
                     {message && (
                         <p className="success-message">
                             {message}
                         </p>
                     )}
-
                     <button type="submit" disabled={loading}>
                         {loading
                             ? "Please wait..."
@@ -145,11 +125,8 @@ function Login() {
                                 : "Create Account"
                         }
                     </button>
-
                 </form>
-
                 <div className="auth-switch">
-
                     {isLogin ? (
                         <p>
                             Don't have an account?{" "}
@@ -168,13 +145,9 @@ function Login() {
                             </button>
                         </p>
                     )}
-
                 </div>
-
             </div>
-
         </div>
     );
 }
-
 export default Login;

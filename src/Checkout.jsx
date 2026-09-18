@@ -47,7 +47,7 @@ function Checkout() {
         setLoading(true);
         try {
             const paymentResponse = await fetch(
-                "http://localhost:5000/api/payments/create-checkout-session",
+                `${import.meta.env.VITE_API_URL}/api/payments/create-checkout-session`,
                 {
                     method: "POST",
                     headers: {
@@ -166,80 +166,48 @@ function Checkout() {
                 {/* ORDER SUMMARY */}
 
                 <section className="checkout-summary">
-
                     <h2>Your Order</h2>
-
                     {cart.map((item) => (
-
-                        <div
-                            className="checkout-item"
-                            key={`${item.cake_id}-${item.size_id}`}
-                        >
-
+                        <div className="checkout-item" key={`${item.cake_id}-${item.size_id}`}>
                             <div>
-
                                 <h3>{item.name}</h3>
-
                                 {item.size_name && (
                                     <p>
                                         Size: {item.size_name}
                                     </p>
                                 )}
-
                                 <p>
                                     Quantity: {item.quantity}
                                 </p>
 
                             </div>
-
                             <strong>
-                                $
-                                {(
-                                    Number(item.price) *
-                                    item.quantity
-                                ).toFixed(2)}
+                                $ {(Number(item.price) * item.quantity).toFixed(2)}
                             </strong>
-
                         </div>
-
                     ))}
-
                     <div className="checkout-line">
-
                         <span>Subtotal</span>
-
                         <span>
                             ${subtotal.toFixed(2)}
                         </span>
-
                     </div>
 
                     <div className="checkout-line">
-
                         <span>Tax</span>
-
                         <span>
                             ${tax.toFixed(2)}
                         </span>
-
                     </div>
-
                     <div className="checkout-total">
-
                         <strong>Total</strong>
-
                         <strong>
                             ${total.toFixed(2)}
                         </strong>
-
                     </div>
-
                 </section>
-
             </div>
-
         </main>
     );
 }
-
 export default Checkout;

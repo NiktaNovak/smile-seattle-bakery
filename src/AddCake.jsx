@@ -31,7 +31,7 @@ function AddCake({ onCakeAdded }) {
             try {
 
                 const response = await fetch(
-                    "http://localhost:5000/api/categories"
+                    `${import.meta.env.VITE_API_URL}/api/categories`
                 );
 
                 const data = await response.json();
@@ -86,7 +86,7 @@ function AddCake({ onCakeAdded }) {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/cakes",
+                `${import.meta.env.VITE_API_URL}/api/cakes`,
                 {
                     method: "POST",
 

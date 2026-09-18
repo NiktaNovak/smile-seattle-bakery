@@ -6,25 +6,21 @@ import CartContext from "./context/CartContext";
 function Cakes() {
     const navigate = useNavigate();
     const { addToCart, cartMessage } = useContext(CartContext);
-
     const [cakes, setCakes] = useState([]);
     const [selectedSizes, setSelectedSizes] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/cakes")
+        fetch(`${import.meta.env.VITE_API_URL}/api/cakes`)
             .then(res => res.json())
             .then(data => {
                 setCakes(data);
-
                 const defaultSizes = {};
-
                 data.forEach(cake => {
                     if (cake.sizes?.length > 0) {
                         defaultSizes[cake.cake_id] =
                             cake.sizes[0].size_id;
                     }
                 });
-
                 setSelectedSizes(defaultSizes);
             })
             .catch(error =>
@@ -32,24 +28,14 @@ function Cakes() {
             );
     }, []);
 
-    const categories = [
-        ...new Set(cakes.map(item => item.category))
-    ];
-
+    const categories = [ ...new Set(cakes.map(item => item.category))];
     const handleSizeChange = (cakeId, sizeId) => {
-        setSelectedSizes({
-            ...selectedSizes,
-            [cakeId]: Number(sizeId)
-        });
+        setSelectedSizes({...selectedSizes,[cakeId]: Number(sizeId)});
     };
 
     const handleAddToCart = (cake) => {
-        const selectedSize = cake.sizes?.find(
-            size => size.size_id === selectedSizes[cake.cake_id]
-        );
-
+        const selectedSize = cake.sizes?.find( size => size.size_id === selectedSizes[cake.cake_id]);
         if (!selectedSize) return;
-
         addToCart({
             cake_id: cake.cake_id,
             name: cake.name,
@@ -62,40 +48,26 @@ function Cakes() {
 
     return (
         <section className="cake-section">
-
             {cartMessage && (
                 <div className="cart-notification">
                     {cartMessage}
                 </div>
             )}
-
             <h1>Our Bakery Menu</h1>
-
             {categories.map(category => (
                 <div key={category}>
-
                     <h2 className="category-title">
                         {category}
                     </h2>
-
                     <div className="cake-cards">
-
                         {cakes
                             .filter(item =>
                                 item.category === category
                             )
                             .map(item => {
-
                                 const isWeddingCake =
                                     item.name === "Wedding Cakes";
-
-                                const selectedSize =
-                                    item.sizes?.find(
-                                        size =>
-                                            size.size_id ===
-                                            selectedSizes[item.cake_id]
-                                    );
-
+                                const selectedSize = item.sizes?.find( size => size.size_id === selectedSizes[item.cake_id]);
                                 return (
                                     <div className="cake" key={item.cake_id}>
                                         <img src={item.image_url} alt={item.name} />
@@ -110,7 +82,6 @@ function Cakes() {
                                                     <label>
                                                         Size:
                                                     </label>
-
                                                     <select
                                                         value={
                                                             selectedSizes[

@@ -20,10 +20,8 @@ function AdminDashboard() {
     // ==============================
 
     const getOrders = async () => {
-
         try {
-
-            const response = await fetch("http://localhost:5000/api/orders/all",
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/all`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -32,23 +30,17 @@ function AdminDashboard() {
             );
 
             const data = await response.json();
-
             if (!response.ok) {
                 throw new Error(
                     data.error || "Unable to load orders."
                 );
             }
-
             setOrders(data);
-
         } catch (error) {
-
             console.error(error);
             setError(error.message);
-
         }
     };
-
 
     // ==============================
     // GET ALL CAKES
@@ -56,7 +48,7 @@ function AdminDashboard() {
 
     const getCakes = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/cakes/admin", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cakes/admin`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -106,7 +98,7 @@ function AdminDashboard() {
         try {
 
             const response = await fetch(
-                `http://localhost:5000/api/orders/${orderId}/status`,
+                `${import.meta.env.VITE_API_URL}/api/orders/${orderId}/status`,
                 {
                     method: "PATCH",
                     headers: {
@@ -135,21 +127,16 @@ function AdminDashboard() {
         }
     };
 
-
     const updateAvailability = async (cakeId, available) => {
-
         try {
-
             const response = await fetch(
-                `http://localhost:5000/api/cakes/${cakeId}/availability`,
+                `${import.meta.env.VITE_API_URL}/api/cakes/${cakeId}/availability`,
                 {
                     method: "PATCH",
-
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
-
                     body: JSON.stringify({
                         available: !available
                     })
@@ -157,47 +144,36 @@ function AdminDashboard() {
             );
 
             const data = await response.json();
-
             if (!response.ok) {
                 throw new Error(
                     data.error || "Unable to update cake availability."
                 );
             }
-
             await getCakes();
 
         } catch (error) {
-
             console.error(error);
             setError(error.message);
 
         }
     };
 
-
     // ==============================
     // LOADING
     // ==============================
 
     if (loading) {
-
         return (
             <main className="admin-page">
-
                 <h1>Admin Dashboard</h1>
-
                 <p>Loading dashboard...</p>
-
             </main>
         );
     }
 
-
     return (
         <main className="admin-page">
-
             <h1>Admin Dashboard</h1>
-
             <p className="admin-subtitle">
                 Manage customer orders and bakery cakes
             </p>

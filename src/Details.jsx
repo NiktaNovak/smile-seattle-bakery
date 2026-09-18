@@ -7,11 +7,9 @@ function Details() {
     const { id } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useContext(CartContext);
-
     const [cake, setCake] = useState(null);
-
     useEffect(() => {
-        fetch(`http://localhost:5000/api/cakes/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/cakes/${id}`)
             .then(res => res.json())
             .then(data => setCake(data))
             .catch(error => console.log(error));
@@ -20,14 +18,11 @@ function Details() {
     if (!cake) {
         return <h1>Item not found</h1>;
     }
-
     const isWeddingCake = cake.name === "Wedding Cakes";
-
+    
     const handleAddToCart = () => {
         if (!cake.sizes || cake.sizes.length === 0) return;
-
         const size = cake.sizes[0];
-
         addToCart({
             cake_id: cake.cake_id,
             name: cake.name,
@@ -41,24 +36,19 @@ function Details() {
     return (
         <section className="details-page">
             <div className="details-card">
-
                 <div className="details-image">
                     <img src={cake.image_url} alt={cake.name} />
                 </div>
-
                 <div className="details-info">
                     <h1>{cake.name}</h1>
-
                     <p className="details-description">
                         {cake.details}
                     </p>
-
                     {isWeddingCake ? (
                         <>
                             <p className="details-price">
                                 Custom Pricing
                             </p>
-
                             <button
                                 className="cart-btn"
                                 onClick={() => navigate("/Contact")}
@@ -74,7 +64,6 @@ function Details() {
                                         Starting at $
                                         {Number(cake.sizes[0].price).toFixed(2)}
                                     </p>
-
                                     <button
                                         className="cart-btn"
                                         onClick={handleAddToCart}
@@ -86,7 +75,6 @@ function Details() {
                         </>
                     )}
                 </div>
-
             </div>
         </section>
     );

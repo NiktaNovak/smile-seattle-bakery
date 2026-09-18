@@ -24,7 +24,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
 
     // Load categories
     useEffect(() => {
-        fetch("http://localhost:5000/api/categories")
+        fetch(`${import.meta.env.VITE_API_URL}/api/categories`)
             .then(res => res.json())
             .then(data => {
                 if (!Array.isArray(data)) {
@@ -49,7 +49,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
         });
 
         fetch(
-            `http://localhost:5000/api/cake-sizes/cake/${cake.cake_id}`,
+            `${import.meta.env.VITE_API_URL}/api/cake-sizes/cake/${cake.cake_id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -94,7 +94,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/cake-sizes",
+                `${import.meta.env.VITE_API_URL}/api/cake-sizes`,
                 {
                     method: "POST",
                     headers: {
@@ -142,7 +142,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
     const handleUpdateSize = async (size) => {
         try {
             const response = await fetch(
-                `http://localhost:5000/api/cake-sizes/${size.size_id}`,
+                `${import.meta.env.VITE_API_URL}/api/cake-sizes/${size.size_id}`,
                 {
                     method: "PUT",
                     headers: {
@@ -178,7 +178,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
 
         try {
             const response = await fetch(
-                `http://localhost:5000/api/cake-sizes/${sizeId}`,
+                `${import.meta.env.VITE_API_URL}/api/cake-sizes/${sizeId}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -212,7 +212,7 @@ function EditCake({ cake, onCakeUpdated, onCancel }) {
 
         try {
             const response = await fetch(
-                `http://localhost:5000/api/cakes/${cake.cake_id}`,
+                `${import.meta.env.VITE_API_URL}/api/cakes/${cake.cake_id}`,
                 {
                     method: "PUT",
                     headers: {

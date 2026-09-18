@@ -6,60 +6,45 @@ import "./Order.css";
 function Order() {
     const { addToCart, cartMessage } = useContext(CartContext);
     const navigate = useNavigate();
-
     const [cakes, setCakes] = useState([]);
     const [selectedSizes, setSelectedSizes] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/cakes")
+        fetch(`${import.meta.env.VITE_API_URL}/api/cakes`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error("Unable to load cakes.");
                 }
-
                 return res.json();
             })
             .then(data => {
                 setCakes(data);
-
                 const defaultSizes = {};
-
                 data.forEach(cake => {
                     if (cake.sizes?.length > 0) {
                         defaultSizes[cake.cake_id] =
                             cake.sizes[0].size_id;
                     }
                 });
-
                 setSelectedSizes(defaultSizes);
                 setLoading(false);
             })
             .catch(error => {
                 console.log(error);
-                setError(
-                    "Unable to load cakes. Please try again later."
-                );
+                setError("Unable to load cakes. Please try again later.");
                 setLoading(false);
             });
     }, []);
 
     const handleSizeChange = (cakeId, sizeId) => {
-        setSelectedSizes({
-            ...selectedSizes,
-            [cakeId]: Number(sizeId)
-        });
+        setSelectedSizes({...selectedSizes, [cakeId]: Number(sizeId)});
     };
 
     const handleAddToCart = (cake) => {
-        const selectedSize = cake.sizes?.find(
-            size =>
-                size.size_id === selectedSizes[cake.cake_id]
-        );
-
+        const selectedSize = cake.sizes?.find( size => size.size_id === selectedSizes[cake.cake_id]);
         if (!selectedSize) return;
-
         addToCart({
             cake_id: cake.cake_id,
             name: cake.name,
