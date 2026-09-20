@@ -3,8 +3,8 @@ import { getCakes , getAdminCakes, getCakeById , createCakeController , updateCa
 import validateCake from "../middleware/validateCake.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 import requireRole from "../middleware/roleMiddleware.js";
-const router = express.Router();
 
+const router = express.Router();
 router.get("/", getCakes);
 router.get("/admin", authMiddleware, requireRole("admin"), getAdminCakes);
 router.get("/:id" , getCakeById);

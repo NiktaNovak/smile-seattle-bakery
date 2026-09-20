@@ -27,8 +27,7 @@ export const findAvailableCakes = async () => {
                 price
              FROM cake_sizes
              WHERE cake_id = ?
-             ORDER BY price`,
-            [cake.cake_id]
+             ORDER BY price`, [cake.cake_id]
         );
         cake.sizes = sizes;
     }
@@ -60,8 +59,7 @@ export const findAllCakes = async () => {
                 price
              FROM cake_sizes
              WHERE cake_id = ?
-             ORDER BY price`,
-            [cake.cake_id]
+             ORDER BY price`, [cake.cake_id]
         );
         cake.sizes = sizes;
     }
@@ -84,8 +82,7 @@ export const findCakeById = async (id) => {
         FROM cakes
         JOIN categories
             ON cakes.category_id = categories.category_id
-        WHERE cakes.cake_id = ?
-    `, [id]);
+        WHERE cakes.cake_id = ?`, [id]);
     if (rows.length === 0) {
         return null;
     }
@@ -97,8 +94,7 @@ export const findCakeById = async (id) => {
             price
          FROM cake_sizes
          WHERE cake_id = ?
-         ORDER BY price`,
-        [id]
+         ORDER BY price`, [id]
     );
     cake.sizes = sizes;
     return cake;
@@ -138,7 +134,7 @@ export const updateCakeAvailability = async (id, available) => {
     const [result] = await db.query(
         `UPDATE cakes
          SET available = ?
-         WHERE cake_id = ?`,[available, id]
+         WHERE cake_id = ?`, [available, id]
     );
     return result;
 };
@@ -147,7 +143,7 @@ export const updateCakeAvailability = async (id, available) => {
 export const deleteCake = async (id) => {
     const [result] = await db.query(
         `DELETE FROM cakes
-         WHERE cake_id = ?`,[id]
+         WHERE cake_id = ?`, [id]
     );
     return result;
 };
