@@ -101,10 +101,6 @@
     margin-bottom: 20px;
 }
 
-/* ==============================
-   ADMIN CAKE CARDS
-   ============================== */
-
 .admin-cakes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -155,10 +151,6 @@
     text-align: center;
 }
 
-/* ==============================
-   ADD CAKE FORM
-   ============================== */
-
 .add-cake {
     background: white;
     padding: 30px;
@@ -200,13 +192,11 @@
     min-height: 100px;
     resize: vertical;
 }
-
 .add-cake input:focus,
 .add-cake textarea:focus {
     outline: none;
     border-color: #d2691e;
 }
-
 .add-cake button {
     padding: 13px 20px;
     border: none;
@@ -218,11 +208,9 @@
     cursor: pointer;
     transition: 0.3s;
 }
-
 .add-cake button:hover {
     background: #8b4513;
 }
-
 .add-cake select {
     padding: 12px;
     border: 1px solid #d8c3b5;
@@ -232,12 +220,10 @@
     background: white;
     cursor: pointer;
 }
-
 .add-cake select:focus {
     outline: none;
     border-color: #d2691e;
 }
-
 .success-message {
     padding: 12px;
     margin-bottom: 20px;
@@ -246,10 +232,6 @@
     color: #2e7d32;
     font-weight: 600;
 }
-
-/* ==============================
-   EDIT CAKE
-   ============================== */
 
 .edit-cake-button {
     margin-top: 15px;
@@ -262,16 +244,9 @@
     cursor: pointer;
     transition: 0.3s;
 }
-
 .edit-cake-button:hover {
     background: #8b4513;
 }
-
-
-/* ==============================
-   EDIT CAKE FORM
-   ============================== */
-
 .edit-cake {
     background: white;
     padding: 30px;
@@ -280,18 +255,15 @@
     max-width: 700px;
     margin: 0 auto;
 }
-
 .edit-cake h2 {
     color: #8b4513;
     margin-bottom: 25px;
 }
-
 .edit-cake form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
 .edit-cake label {
     display: flex;
     flex-direction: column;
@@ -299,7 +271,6 @@
     font-weight: 600;
     color: #4e342e;
 }
-
 .edit-cake input,
 .edit-cake textarea,
 .edit-cake select {
@@ -309,24 +280,20 @@
     font-size: 1rem;
     font-family: inherit;
 }
-
 .edit-cake textarea {
     min-height: 100px;
     resize: vertical;
 }
-
 .edit-cake input:focus,
 .edit-cake textarea:focus,
 .edit-cake select:focus {
     outline: none;
     border-color: #d2691e;
 }
-
 .edit-cake-actions {
     display: flex;
     gap: 15px;
 }
-
 .edit-cake-actions button {
     padding: 12px 20px;
     border: none;
@@ -336,19 +303,15 @@
     font-weight: bold;
     cursor: pointer;
 }
-
 .edit-cake-actions button:hover {
     background: #8b4513;
 }
-
 .edit-cake-actions button[type="button"] {
     background: #777;
 }
-
 .edit-cake-actions button[type="button"]:hover {
     background: #555;
 }
-
 .availability-button {
     margin-top: 10px;
     margin-left: 10px;
@@ -361,7 +324,6 @@
     cursor: pointer;
     transition: 0.3s;
 }
-
 .availability-button:hover {
     background: #555;
 }

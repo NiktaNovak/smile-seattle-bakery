@@ -34,7 +34,6 @@ function Login() {
                 },
                 body: JSON.stringify(body)
             });
-
             const data = await response.json();
             if (!response.ok) {
                 setError(data.error || "Something went wrong.");
@@ -61,7 +60,6 @@ function Login() {
             setLoading(false);
         }
     };
-
     const switchMode = () => {
         setIsLogin(!isLogin);
         setError("");
@@ -79,32 +77,27 @@ function Login() {
                     {isLogin ? "Welcome Back!" : "Create an Account"}
                 </h1>
                 <p>
-                    {isLogin
-                        ? "Log in to continue your order."
-                        : "Create an account to order from Smile Seattle Bakery."
-                    }
+                    {isLogin ? "Log in to continue your order." : "Create an account to order from Smile Seattle Bakery."}
                 </p>
                 <form onSubmit={handleSubmit}>
                     {!isLogin && (
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
+                            <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                         </div>
                     )}
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password </label>
-                        <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     {!isLogin && (
                         <div className="form-group">
                             <label htmlFor="confirmPassword"> Confirm Password</label>
-                            <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                            />
+                            <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                         </div>
                     )}
                     {error && (
@@ -137,10 +130,7 @@ function Login() {
                     ) : (
                         <p>
                             Already have an account?{" "}
-                            <button
-                                type="button"
-                                onClick={switchMode}
-                            >
+                            <button type="button" onClick={switchMode}>
                                 Login
                             </button>
                         </p>

@@ -4,14 +4,9 @@ import "./Cart.css";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
-
     const { cart, updateQuantity, removeFromCart } = useContext(CartContext);
     const navigate = useNavigate();
-    const subtotal = cart.reduce(
-        (total, item) => total + Number(item.price) * item.quantity,
-        0
-    );
-
+    const subtotal = cart.reduce((total, item) => total + Number(item.price) * item.quantity, 0);
     return (
         <main className="cart-page">
             <h1>Your Cart</h1>
@@ -24,7 +19,7 @@ function Cart() {
                     <section className="cart-items">
                         {cart.map(item => (
                             <div className="cart-item" key={`${item.cake_id}-${item.size_id}`}>
-                                <img src={item.image_url} alt={item.name}/>
+                                <img src={item.image_url} alt={item.name} />
                                 <div className="cart-item-info">
                                     <h2>{item.name}</h2>
                                     {item.size_name && (
@@ -36,37 +31,17 @@ function Cart() {
                                         ${Number(item.price).toFixed(2)}
                                     </p>
                                     <div className="quantity-controls">
-                                        <button
-                                            onClick={() => updateQuantity(
-                                                    item.cake_id,
-                                                    item.size_id,
-                                                    item.quantity - 1
-                                                )
-                                            }
-                                        >
+                                        <button onClick={() => updateQuantity( item.cake_id,item.size_id,item.quantity - 1)}>
                                             −
                                         </button>
                                         <span>
                                             {item.quantity}
                                         </span>
-                                        <button
-                                            onClick={() => updateQuantity(
-                                                    item.cake_id,
-                                                    item.size_id,
-                                                    item.quantity + 1
-                                                )
-                                            }
-                                        >
+                                        <button onClick={() => updateQuantity(item.cake_id,item.size_id,item.quantity + 1)}>
                                             +
                                         </button>
                                     </div>
-                                    <button className="remove-btn" onClick={() =>
-                                            removeFromCart(
-                                                item.cake_id,
-                                                item.size_id
-                                            )
-                                        }
-                                    >
+                                    <button className="remove-btn" onClick={() =>removeFromCart(item.cake_id,item.size_id)}>
                                         Remove
                                     </button>
                                 </div>
@@ -100,5 +75,4 @@ function Cart() {
         </main>
     );
 }
-
 export default Cart;

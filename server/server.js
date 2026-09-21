@@ -15,15 +15,14 @@ app.use("/api/payments/webhook", express.raw({ type: "application/json" }), paym
 app.use(express.json());
 const port = 5000;
 
-app.use('/api/cakes', cakeRoutes);
+app.use("/api/cakes", cakeRoutes);
 app.use("/api/users", userRoutes);
-app.use('/api/orders', orderRoutes);
+app.use("/api/orders", orderRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/cake-sizes", cakeSizeRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use(errorHandler);
-
 app.listen(port, () => {
     console.log('Server running on port 5000..');
 })

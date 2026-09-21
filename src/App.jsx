@@ -32,33 +32,12 @@ function App() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Cakes/:id" element={<Details />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/checkout-success" element={<CheckoutSuccess />}/>
-            <Route path="/Checkout"
-              element={<ProtectedRoute> <Checkout /> </ProtectedRoute>} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path="/Checkout" element={<ProtectedRoute> <Checkout /> </ProtectedRoute>} />
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/MyOrders"
-              element={
-                <ProtectedRoute>
-                  <MyOrders />
-                </ProtectedRoute>
-              } />
-            <Route
-              path="/orders/:id"
-              element={
-                <ProtectedRoute>
-                  <OrderDetails />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin"
-              element={
-                <AdminRoute>
-                  <AdminDashboard />
-                </AdminRoute>
-              }
-            />
+            <Route path="/MyOrders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
+            <Route path="/orders/:id" element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
+            <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           </Routes>
           <Footer />
         </CartProvider>

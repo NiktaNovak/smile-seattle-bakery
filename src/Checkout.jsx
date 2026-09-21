@@ -4,7 +4,6 @@ import AuthContext from "./context/AuthContext";
 import "./Checkout.css";
 
 function Checkout() {
-
     const { cart } = useContext(CartContext);
     const { token, user } = useContext(AuthContext);
     const [phone, setPhone] = useState("");
@@ -14,12 +13,7 @@ function Checkout() {
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
-    const subtotal = cart.reduce(
-        (total, item) =>
-            total + Number(item.price) * item.quantity,
-        0
-    );
-
+    const subtotal = cart.reduce((total, item) => total + Number(item.price) * item.quantity, 0);
     const tax = subtotal * 0.10;
     const total = subtotal + tax;
     const orderItems = cart.map((item) => ({
@@ -46,8 +40,7 @@ function Checkout() {
         }
         setLoading(true);
         try {
-            const paymentResponse = await fetch(
-                `${import.meta.env.VITE_API_URL}/api/payments/create-checkout-session`,
+            const paymentResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/payments/create-checkout-session`,
                 {
                     method: "POST",
                     headers: {
@@ -62,13 +55,9 @@ function Checkout() {
                     })
                 }
             );
-
             const paymentData = await paymentResponse.json();
             if (!paymentResponse.ok) {
-                throw new Error(
-                    paymentData.error ||
-                    "Unable to start payment."
-                );
+                throw new Error(paymentData.error || "Unable to start payment.");
             }
             window.location.href = paymentData.url;
         } catch (error) {
@@ -82,7 +71,6 @@ function Checkout() {
         <main className="checkout-page">
             <h1>Checkout</h1>
             <div className="checkout-container">
-                {/* CUSTOMER INFORMATION */}
                 <section className="checkout-form">
                     <h2>Pickup Information</h2>
                     <p className="checkout-user">
@@ -93,77 +81,35 @@ function Checkout() {
                             <label htmlFor="phone">
                                 Phone Number
                             </label>
-                            <input
-                                id="phone"
-                                type="tel"
-                                value={phone}
-                                onChange={(e) =>
-                                    setPhone(e.target.value)
-                                }
-                                placeholder="(555) 123-4567"
-                                required
-                            />
+                            <input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(555) 123-4567" required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="pickupDate">
                                 Pickup Date
                             </label>
-                            <input
-                                id="pickupDate"
-                                type="date"
-                                value={pickupDate}
-                                onChange={(e) =>
-                                    setPickupDate(e.target.value)
-                                }
-                                required
-                            />
+                            <input id="pickupDate" type="date" value={pickupDate} onChange={(e) => setPickupDate(e.target.value)} required />
                         </div>
                         <div className="form-group">
-
                             <label htmlFor="pickupTime">
                                 Pickup Time
                             </label>
-
-                            <input
-                                id="pickupTime"
-                                type="time"
-                                value={pickupTime}
-                                onChange={(e) =>
-                                    setPickupTime(e.target.value)
-                                }
-                                required
-                            />
-
+                            <input id="pickupTime" type="time" value={pickupTime} onChange={(e) => setPickupTime(e.target.value)} required />
                         </div>
-
                         {error && (
                             <p className="checkout-error">
                                 {error}
                             </p>
                         )}
-
                         {success && (
                             <p className="checkout-success">
                                 {success}
                             </p>
                         )}
-
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="place-order-btn"
-                        >
-                            {loading
-                                ? "Placing Order..."
-                                : "Place Order"
-                            }
+                        <button type="submit" disabled={loading} className="place-order-btn">
+                            {loading ? "Placing Order..." : "Place Order"}
                         </button>
-
                     </form>
-
                 </section>
-
-                {/* ORDER SUMMARY */}
 
                 <section className="checkout-summary">
                     <h2>Your Order</h2>
@@ -179,7 +125,6 @@ function Checkout() {
                                 <p>
                                     Quantity: {item.quantity}
                                 </p>
-
                             </div>
                             <strong>
                                 $ {(Number(item.price) * item.quantity).toFixed(2)}
@@ -192,7 +137,6 @@ function Checkout() {
                             ${subtotal.toFixed(2)}
                         </span>
                     </div>
-
                     <div className="checkout-line">
                         <span>Tax</span>
                         <span>

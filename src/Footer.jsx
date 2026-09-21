@@ -9,7 +9,6 @@ function Footer(){
             <div className="footer-content">
                 <div>
                     <h3>Contact</h3>
-
                     <p>📍 Las Vegas, NV</p>
                     <p>📞 (702) 419-5659</p>
                     <p>✉️ kdbrown8856@gmail.com</p>

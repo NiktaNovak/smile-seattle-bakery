@@ -19,7 +19,6 @@ function Details() {
         return <h1>Item not found</h1>;
     }
     const isWeddingCake = cake.name === "Wedding Cakes";
-    
     const handleAddToCart = () => {
         if (!cake.sizes || cake.sizes.length === 0) return;
         const size = cake.sizes[0];
@@ -49,10 +48,7 @@ function Details() {
                             <p className="details-price">
                                 Custom Pricing
                             </p>
-                            <button
-                                className="cart-btn"
-                                onClick={() => navigate("/Contact")}
-                            >
+                            <button className="cart-btn"onClick={() => navigate("/Contact")}>
                                 Request a Quote
                             </button>
                         </>
@@ -61,13 +57,9 @@ function Details() {
                             {cake.sizes?.length > 0 && (
                                 <>
                                     <p className="details-price">
-                                        Starting at $
-                                        {Number(cake.sizes[0].price).toFixed(2)}
+                                        Starting at ${Number(cake.sizes[0].price).toFixed(2)}
                                     </p>
-                                    <button
-                                        className="cart-btn"
-                                        onClick={handleAddToCart}
-                                    >
+                                    <button className="cart-btn" onClick={handleAddToCart}>
                                         Add to Cart
                                     </button>
                                 </>
@@ -79,5 +71,4 @@ function Details() {
         </section>
     );
 }
-
 export default Details;

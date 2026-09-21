@@ -17,16 +17,12 @@ function OrderDetails() {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/${id}`,
                     {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
+                        headers: { Authorization: `Bearer ${token}` }
                     }
                 );
                 const data = await response.json();
                 if (!response.ok) {
-                    throw new Error(
-                        data.error || "Failed to load order."
-                    );
+                    throw new Error(data.error || "Failed to load order.");
                 }
                 setOrder(data);
             } catch (error) {
@@ -50,18 +46,15 @@ function OrderDetails() {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/${id}/cancel`,
                 {
                     method: "PATCH",
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                    headers: { Authorization: `Bearer ${token}` }
                 }
             );
-
             const data = await response.json();
             if (!response.ok) {
                 throw new Error(data.error || "Unable to cancel order.");
             }
-            // Update the page immediately
-            setOrder({...order,status: "cancelled"});
+            // Update the order immediately
+            setOrder({ ...order, status: "cancelled" });
         } catch (error) {
             console.error(error);
             setError(error.message);
@@ -104,7 +97,6 @@ function OrderDetails() {
                     {cancelling ? "Cancelling..." : "Cancel Order"}
                 </button>
             )}
-
             <div className="order-info-card">
                 <h3>Order Information</h3>
                 <p>

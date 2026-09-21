@@ -4,20 +4,16 @@ import AuthContext from "./context/AuthContext";
 import "./MyOrders.css";
 
 function MyOrders() {
-
     const { token } = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-
     useEffect(() => {
         const getOrders = async () => {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders`,
                     {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
+                        headers: { Authorization: `Bearer ${token}`}
                     }
                 );
                 const data = await response.json();
@@ -43,7 +39,6 @@ function MyOrders() {
             </div>
         );
     }
-
     if (error) {
         return (
             <div className="orders-page">
@@ -54,7 +49,6 @@ function MyOrders() {
             </div>
         );
     }
-
     return (
         <div className="orders-page">
             <h2>My Orders</h2>
