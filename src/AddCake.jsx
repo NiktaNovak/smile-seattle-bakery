@@ -14,8 +14,6 @@ function AddCake({ onCakeAdded }) {
     });
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
-
-    // GET CATEGORIES
     useEffect(() => {
         const getCategories = async () => {
             try {
